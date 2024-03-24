@@ -1,4 +1,4 @@
-# cyberspeed-assignment
+# cyberspeed
 Cyberspeed DevOps Assignment 
 
 # three-tier-eks-iac
@@ -8,13 +8,8 @@ Cyberspeed DevOps Assignment
 **Install Kubectl**
 https://kubernetes.io/docs/tasks/tools/
 
-
 **Install Helm**
 https://helm.sh/docs/intro/install/
-
-```
-helm repo update
-```
 
 **Install/update latest AWS CLI:** (make sure install v2 only)
 https://aws.amazon.com/cli/
@@ -33,6 +28,8 @@ kubectl get nodes
 create I am User with privialaged access to deploy eks cluster and related service. or
 
 # Deploy EKS cluster:
+via terraform cli
+
  ```
  cd iac_terraform
  terraform init
