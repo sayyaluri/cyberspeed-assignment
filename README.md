@@ -14,9 +14,10 @@ https://kubernetes.io/docs/tasks/tools/
 **Install Helm**
 https://helm.sh/docs/intro/install/
 
-**Install/update latest AWS CLI:** (make sure install v2 only)
+**Install latest AWS CLI:**
 https://aws.amazon.com/cli/
 
+**Install terraform CLI**
 
 #update the Kubernetes context
 aws eks update-kubeconfig --name cyberspeed-cluster --region us-west-2
