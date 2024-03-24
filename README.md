@@ -28,7 +28,7 @@ kubectl get nodes
 ```
 
 # Create IAM User/role 
-create I am User with privialaged access to deploy eks cluster and related service. or
+create IAM User with privileged access to deploy eks cluster and related service. or
 
 # Deploy EKS cluster:
 via terraform cli
