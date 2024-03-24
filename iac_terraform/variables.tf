@@ -1,11 +1,11 @@
 variable "cluster_name" {
   type = string
-  default = "my-eks-cluster"
+  default = "cyberspeed-eks-cluster"
 }
 
 variable "cluster_version" {
   type = number
-  default = 1.25
+  default = 1.29
 }
 
 variable "region" {
