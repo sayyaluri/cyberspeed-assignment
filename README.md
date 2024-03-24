@@ -19,15 +19,6 @@ https://aws.amazon.com/cli/
 
 **Install terraform CLI**
 
-#update the Kubernetes context
-aws eks update-kubeconfig --name cyberspeed-cluster --region us-west-2
-
-# verify access:
-```
-kubectl auth can-i "*" "*"
-kubectl get nodes
-```
-
 # Create IAM User/role 
 create IAM User with privileged access to deploy eks cluster and related service. or
 
