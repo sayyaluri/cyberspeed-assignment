@@ -31,6 +31,7 @@ create I am User with privialaged access to deploy eks cluster and related servi
 via terraform cli
 
  ```
+ git clone https://github.com/sayyaluri/cyberspeed-assignment.git
  cd iac_terraform
  terraform init
  terraform validate
