@@ -2,6 +2,8 @@
 Cyberspeed DevOps Assignment 
 
 # three-tier-eks-iac
+![image](https://github.com/sayyaluri/cyberspeed-assignment/assets/32944930/e4fcc461-054e-43cd-851a-95f2dc8e4d24)
+
 
 # Prerequisite 
 
