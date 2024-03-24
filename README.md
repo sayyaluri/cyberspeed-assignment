@@ -71,7 +71,7 @@ kubectl config set-context --current --namespace cyberspeed
 
 **To create MongoDB Resources**
 ```
-cd k8s_manifests/mongo_v1
+cd kubernetes_manifests/mongo
 kubectl apply -f secrets.yaml
 kubectl apply -f deploy.yaml
 kubectl apply -f service.yaml
