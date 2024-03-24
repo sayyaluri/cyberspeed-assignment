@@ -1,6 +1,6 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "18.29.0"
+  version = "20.8.4"
 
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
@@ -19,9 +19,9 @@ module "eks" {
 
   eks_managed_node_groups = {
     general = {
-      desired_size = 1
-      min_size     = 1
-      max_size     = 10
+      desired_size = 2
+      min_size     = 2
+      max_size     = 5
 
       labels = {
         role = "general"
@@ -76,7 +76,6 @@ module "eks" {
   }
 }
 
-# https://github.com/terraform-aws-modules/terraform-aws-eks/issues/2009
 data "aws_eks_cluster" "default" {
   name = module.eks.cluster_id
 }
@@ -88,7 +87,6 @@ data "aws_eks_cluster_auth" "default" {
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.default.endpoint
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-  # token                  = data.aws_eks_cluster_auth.default.token
 
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"
