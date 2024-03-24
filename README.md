@@ -21,7 +21,7 @@ https://aws.amazon.com/cli/
 
 
 #update the Kubernetes context
-aws eks update-kubeconfig --name my-eks-cluster --region us-west-2
+aws eks update-kubeconfig --name cyberspeed-cluster --region us-west-2
 
 # verify access:
 ```
@@ -29,29 +29,17 @@ kubectl auth can-i "*" "*"
 kubectl get nodes
 ```
 
-# Verify autoscaler running:
-```
-kubectl get pods -n kube-system
-```
+# Create IAM User/role 
+create I am User with privialaged access to deploy eks cluster and related service. or
 
-# Check Autoscaler logs
-```
-kubectl logs -f \
-  -n kube-system \
-  -l app=cluster-autoscaler
-```
-
-# Check load balancer logs
-```
-kubectl logs -f -n kube-system \
-  -l app.kubernetes.io/name=aws-load-balancer-controller
-```
-
-<!-- aws eks update-kubeconfig \
-  --name my-eks \
-  --region us-west-2 \
-  --profile eks-admin -->
-
+# Deploy EKS cluster:
+ ```
+ cd iac_terraform
+ terraform init
+ terraform validate
+ terrafrm plan
+ terraform apply
+ ```
 
 # Buid Docker image :
 **For Linux/Windows:**
@@ -59,32 +47,32 @@ kubectl logs -f -n kube-system \
 Buid Front End :
 
 ```
-docker build -t workshop-frontend:v1 . 
-docker tag workshop-frontend:v1 public.ecr.aws/w8u5e4v2/workshop-frontend:v1
-docker push public.ecr.aws/w8u5e4v2/workshop-frontend:v1
+docker build -t cyberspeed-frontend:v1 . 
+docker tag cyberspeed-frontend:v1 public.ecr.aws/w8u5e4v2/cyberspeed-frontend:v1
+docker push public.ecr.aws/w8u5e4v2/cyberspeed-frontend:v1
 ```
 
 
 Buid Back End :
 
 ```
-docker build -t workshop-backend:v1 . 
-docker tag workshop-backend:v1 public.ecr.aws/w8u5e4v2/workshop-backend:v1
-docker push public.ecr.aws/w8u5e4v2/workshop-backend:v1
+docker build -t cyberspeed-backend:v1 . 
+docker tag cyberspeed-backend:v1 public.ecr.aws/w8u5e4v2/cyberspeed-backend:v1
+docker push public.ecr.aws/w8u5e4v2/cyberspeed-backend:v1
 ```
 
 **Update Kubeconfig**
 Syntax: aws eks update-kubeconfig --region region-code --name your-cluster-name
 ```
-aws eks update-kubeconfig --region us-west-2 --name my-eks-cluster
+aws eks update-kubeconfig --region us-west-2 --name cyberspeed-cluster
 ```
 
 
 **Create Namespace**
 ```
-kubectl create ns workshop
+kubectl create ns cyberspeed
 
-kubectl config set-context --current --namespace workshop
+kubectl config set-context --current --namespace cyberspeed
 ```
 
 # MongoDB Database Setup
@@ -105,7 +93,6 @@ kubectl apply -f backend-deployment.yaml
 kubectl apply -f backend-service.yaml
 ```
 
-
 **Frontend setup**
 
 Create the Frontend  resource. In the terminal run the following command:
@@ -117,12 +104,6 @@ kubectl apply -f frontend-service.yaml
 Finally create the final load balancer to allow internet traffic:
 ```
 kubectl apply -f full_stack_lb.yaml
-```
-
-
-# Any issue with the pods ? check logs:
-```
-kubectl logs -f POD_ID -f
 ```
 
 
