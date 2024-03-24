@@ -42,10 +42,9 @@ via terraform cli
  terraform apply
  ```
 
-# Buid Docker image :
-**For Linux/Windows:**
+# Build Docker image :
 
-Buid Front End :
+Build Front End :
 
 ```
 docker build -t cyberspeed-frontend:v1 . 
@@ -54,7 +53,7 @@ docker push public.ecr.aws/w8u5e4v2/cyberspeed-frontend:v1
 ```
 
 
-Buid Back End :
+Build Back End :
 
 ```
 docker build -t cyberspeed-backend:v1 . 
@@ -102,7 +101,7 @@ kubectl apply -f frontend-deployment.yaml
 kubectl apply -f frontend-service.yaml
 ```
 
-Finally create the final load balancer to allow internet traffic:
+Create the load balancer to allow internet traffic:
 ```
 kubectl apply -f full_stack_lb.yaml
 ```
